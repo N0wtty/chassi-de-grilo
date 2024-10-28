@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Compras </title>
+    <style>
+         body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        input[type="number"] {
+            padding: 10px;
+            font-size: 16px;
+            width: 80%;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        .resultado {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+           <div class="container">
+        <h1>Jogo de Adivinhação</h1>
+        <p>Escolha um número entre 1 e 10:</p>
+        <input type="number" id="numero" min="1" max="10" placeholder="Digite seu palpite">
+        <button onclick="jogar()">Jogar</button>
+        <div class="resultado" id="resultado"></div>
+    </div>
+
+    <script>
+        function jogar() {
+            // Sorteia um número entre 1 e 10
+            const numeroSorteado = Math.floor(Math.random() * 10) + 1;
+
+            // Obtém o número escolhido pelo jogador
+            const numeroEscolhido = parseInt(document.getElementById("numero").value);
+
+            // Verifica se o número escolhido é igual ao sorteado
+            const resultado = document.getElementById("resultado");
+
+            if (numeroEscolhido === numeroSorteado) {
+                resultado.textContent = "Você ganhou! O número sorteado foi " + numeroSorteado;
+                resultado.style.color = "green";
+            } else {
+                resultado.textContent = "Você perdeu! O número sorteado foi " + numeroSorteado;
+                resultado.style.color = "red";
+            }
+        }
+    </script>
+    
+</body>
+</html>
